@@ -1,0 +1,17 @@
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\bin\Debug\QuanLyTaiKhoan.exe.config
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\bin\Debug\QuanLyTaiKhoan.exe
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\bin\Debug\QuanLyTaiKhoan.pdb
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.csprojAssemblyReference.cache
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.Properties.Resources.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.csproj.GenerateResource.cache
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.csproj.CoreCompileInputs.cache
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.exe
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.pdb
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.Login.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\bin\Debug\FontAwesome.Sharp.dll
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.FormMainMenu.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.csproj.CopyComplete
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormRutTien.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormGuiTien.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormCustomers.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormStaffs.resources
