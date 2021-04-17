@@ -14,17 +14,19 @@ namespace QuanLyTaiKhoan.DTO
         private string maDV;
         private string ngayGui;
         private float laiSuat;
+        private int kyHan;
         private decimal soTienGui;
         private string ngayDenHan;
         private int maGDV_LPG;
 
-        public PhieuGui(int maPhieu, string CMND, string maDV, string ngayGui, float laiSuat, decimal soTienGui, string ngayDenHan, int maGDV_LPG)
+        public PhieuGui(int maPhieu, string CMND, string maDV, string ngayGui, float laiSuat, int kyHan, decimal soTienGui, string ngayDenHan, int maGDV_LPG)
         {
             this.MaPhieu = maPhieu;
             this.CMND = CMND;
             this.maDV = maDV;
             this.ngayGui = ngayGui;
             this.laiSuat = laiSuat;
+            this.kyHan = kyHan;
             this.soTienGui = soTienGui;
             this.ngayDenHan = ngayDenHan;
             this.maGDV_LPG = maGDV_LPG;
@@ -37,6 +39,7 @@ namespace QuanLyTaiKhoan.DTO
             this.maDV = row["MADV"].ToString();
             this.ngayGui = row["NGAYGUI"].ToString();
             this.laiSuat = (float)row["LAISUAT"];
+            this.kyHan = (int)row["KYHAN"];
             this.soTienGui = Decimal.Parse(row["SOTIEN_GUI"].ToString(), System.Globalization.NumberStyles.Any);
             this.ngayDenHan = row["NGAYDENHAN"].ToString();
             this.maGDV_LPG = (int)row["MAGDV_LPG"];
@@ -47,9 +50,11 @@ namespace QuanLyTaiKhoan.DTO
         public string MaDV { get => maDV; set => maDV = value; }
         public string NgayGui { get => ngayGui; set => ngayGui = value; }
         public float LaiSuat { get => laiSuat; set => laiSuat = value; }
+        public int KyHan { get => kyHan; set => kyHan = value; }
         public decimal SoTienGui { get => soTienGui; set => soTienGui = value; }
         public string NgayDenHan { get => ngayDenHan; set => ngayDenHan = value; }
         public int MaGDV_LPG { get => maGDV_LPG; set => maGDV_LPG = value; }
+        
     }
 }
 

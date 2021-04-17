@@ -49,6 +49,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.btnPrint = new FontAwesome.Sharp.IconButton();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +146,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnCapNhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCapNhat.IconSize = 30;
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(642, 218);
+            this.btnCapNhat.Location = new System.Drawing.Point(550, 218);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(120, 30);
             this.btnCapNhat.TabIndex = 44;
@@ -160,7 +161,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClear.IconSize = 30;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(461, 218);
+            this.btnClear.Location = new System.Drawing.Point(402, 218);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(120, 30);
             this.btnClear.TabIndex = 42;
@@ -175,7 +176,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnXoa.IconSize = 30;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(287, 218);
+            this.btnXoa.Location = new System.Drawing.Point(253, 218);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(120, 30);
             this.btnXoa.TabIndex = 40;
@@ -246,11 +247,27 @@ namespace QuanLyTaiKhoan.SubForm
             this.panel11.Size = new System.Drawing.Size(55, 728);
             this.panel11.TabIndex = 47;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrint.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrint.IconSize = 30;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(697, 218);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(120, 30);
+            this.btnPrint.TabIndex = 56;
+            this.btnPrint.Text = "In";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // FormStaffs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 728);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.txtError);
             this.Controls.Add(this.txtMaCN);
             this.Controls.Add(this.txtMaNV);
@@ -300,5 +317,6 @@ namespace QuanLyTaiKhoan.SubForm
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel11;
+        private FontAwesome.Sharp.IconButton btnPrint;
     }
 }

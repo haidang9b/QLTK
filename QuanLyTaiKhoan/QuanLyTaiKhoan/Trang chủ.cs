@@ -29,6 +29,9 @@ namespace QuanLyTaiKhoan
             this.username = username;
             this.macn = macn;
             this.quyen = quyen;
+
+
+            phanQuyen(quyen);
         }
 
         private void Trang_chủ_Load(object sender, EventArgs e)
@@ -191,15 +194,32 @@ namespace QuanLyTaiKhoan
         private void btnService_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new FormService());
         }
 
         private void btnStatistical_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new FormStatistical());
         }
 
         private void panelMenu_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void phanQuyen (string quyen)
+        {
+            if(quyen == "USER")
+            {
+                btnService.Visible = false;
+                btnStatistical.Visible = false;
+                btnService.Visible = false;
+            }
+            if(quyen == "CHINHANH")
+            {
+                btnService.Visible = false;
+            }
 
         }
     }

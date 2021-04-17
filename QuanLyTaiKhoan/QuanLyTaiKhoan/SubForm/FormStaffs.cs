@@ -211,5 +211,41 @@ namespace QuanLyTaiKhoan.SubForm
                 }
             }
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = "DanhSachNhanVien";
+                for (int i = 1; i < dgvNhanVien.Columns.Count + 1; i++)
+                {
+                    worksheet.Cells[1, i] = dgvNhanVien.Columns[i - 1].HeaderText;
+                }
+                for (int i = 0; i < dgvNhanVien.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgvNhanVien.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dgvNhanVien.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileName = "DanhSachNhanVien";
+                saveFileDialog.DefaultExt = ".xlsx";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                }
+            }
+            catch
+            {
+
+            }
+            
+        }
     }
 }

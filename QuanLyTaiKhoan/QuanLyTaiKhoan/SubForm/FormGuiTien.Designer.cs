@@ -32,6 +32,8 @@ namespace QuanLyTaiKhoan.SubForm
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.numericUpDownKyHan = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.txtMaPhieu = new System.Windows.Forms.TextBox();
             this.txtMaGDV = new System.Windows.Forms.TextBox();
@@ -68,6 +70,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKyHan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieu)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,6 +97,8 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.numericUpDownKyHan);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.txtMaPhieu);
             this.panel2.Controls.Add(this.txtMaGDV);
@@ -117,6 +122,32 @@ namespace QuanLyTaiKhoan.SubForm
             this.panel2.Size = new System.Drawing.Size(1032, 591);
             this.panel2.TabIndex = 1;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(612, 190);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "Kỳ hạn";
+            // 
+            // numericUpDownKyHan
+            // 
+            this.numericUpDownKyHan.Location = new System.Drawing.Point(705, 188);
+            this.numericUpDownKyHan.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownKyHan.Name = "numericUpDownKyHan";
+            this.numericUpDownKyHan.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownKyHan.TabIndex = 48;
+            this.numericUpDownKyHan.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -136,7 +167,7 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             // txtMaGDV
             // 
-            this.txtMaGDV.Location = new System.Drawing.Point(427, 133);
+            this.txtMaGDV.Location = new System.Drawing.Point(393, 133);
             this.txtMaGDV.Name = "txtMaGDV";
             this.txtMaGDV.Size = new System.Drawing.Size(89, 20);
             this.txtMaGDV.TabIndex = 45;
@@ -146,7 +177,7 @@ namespace QuanLyTaiKhoan.SubForm
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(373, 136);
+            this.label17.Location = new System.Drawing.Point(339, 136);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(48, 13);
             this.label17.TabIndex = 44;
@@ -191,7 +222,7 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             // txtMoney
             // 
-            this.txtMoney.Location = new System.Drawing.Point(170, 133);
+            this.txtMoney.Location = new System.Drawing.Point(150, 133);
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.Size = new System.Drawing.Size(181, 20);
             this.txtMoney.TabIndex = 33;
@@ -201,7 +232,7 @@ namespace QuanLyTaiKhoan.SubForm
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(74, 136);
+            this.label6.Location = new System.Drawing.Point(54, 136);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 32;
@@ -227,7 +258,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnCapNhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCapNhat.IconSize = 30;
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(586, 188);
+            this.btnCapNhat.Location = new System.Drawing.Point(457, 188);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(120, 30);
             this.btnCapNhat.TabIndex = 26;
@@ -242,7 +273,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClear.IconSize = 30;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(405, 188);
+            this.btnClear.Location = new System.Drawing.Point(321, 188);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(120, 30);
             this.btnClear.TabIndex = 25;
@@ -257,7 +288,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnXoa.IconSize = 30;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(231, 188);
+            this.btnXoa.Location = new System.Drawing.Point(186, 188);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(120, 30);
             this.btnXoa.TabIndex = 24;
@@ -354,9 +385,9 @@ namespace QuanLyTaiKhoan.SubForm
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(19, 49);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 1;
-            this.label10.Text = "Kỳ hạn";
+            this.label10.Text = "Tháng/Kỳ";
             // 
             // label9
             // 
@@ -380,14 +411,14 @@ namespace QuanLyTaiKhoan.SubForm
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(48, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(468, 127);
+            this.groupBox1.Size = new System.Drawing.Size(434, 127);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin khách hàng";
             // 
             // btnTraCuuSCMND
             // 
-            this.btnTraCuuSCMND.Location = new System.Drawing.Point(340, 18);
+            this.btnTraCuuSCMND.Location = new System.Drawing.Point(320, 14);
             this.btnTraCuuSCMND.Name = "btnTraCuuSCMND";
             this.btnTraCuuSCMND.Size = new System.Drawing.Size(98, 23);
             this.btnTraCuuSCMND.TabIndex = 14;
@@ -399,7 +430,7 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             this.dateCMND.CustomFormat = "dd/mm/yyyy";
             this.dateCMND.Enabled = false;
-            this.dateCMND.Location = new System.Drawing.Point(122, 96);
+            this.dateCMND.Location = new System.Drawing.Point(102, 92);
             this.dateCMND.Name = "dateCMND";
             this.dateCMND.Size = new System.Drawing.Size(181, 20);
             this.dateCMND.TabIndex = 13;
@@ -408,7 +439,7 @@ namespace QuanLyTaiKhoan.SubForm
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 98);
+            this.label5.Location = new System.Drawing.Point(6, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 12;
@@ -416,7 +447,7 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(122, 70);
+            this.txtDiaChi.Location = new System.Drawing.Point(102, 66);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(316, 20);
             this.txtDiaChi.TabIndex = 11;
@@ -424,7 +455,7 @@ namespace QuanLyTaiKhoan.SubForm
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 73);
+            this.label4.Location = new System.Drawing.Point(6, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 10;
@@ -433,14 +464,14 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             // txtTenKH
             // 
-            this.txtTenKH.Location = new System.Drawing.Point(122, 46);
+            this.txtTenKH.Location = new System.Drawing.Point(102, 42);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.Size = new System.Drawing.Size(316, 20);
             this.txtTenKH.TabIndex = 9;
             // 
             // txtCMND
             // 
-            this.txtCMND.Location = new System.Drawing.Point(122, 20);
+            this.txtCMND.Location = new System.Drawing.Point(102, 16);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(181, 20);
             this.txtCMND.TabIndex = 8;
@@ -448,7 +479,7 @@ namespace QuanLyTaiKhoan.SubForm
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 53);
+            this.label3.Location = new System.Drawing.Point(6, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 7;
@@ -457,7 +488,7 @@ namespace QuanLyTaiKhoan.SubForm
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 27);
+            this.label2.Location = new System.Drawing.Point(6, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 1;
@@ -477,6 +508,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKyHan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieu)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -525,5 +557,7 @@ namespace QuanLyTaiKhoan.SubForm
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtMaPhieu;
         private System.Windows.Forms.ComboBox cbxMaDV;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown numericUpDownKyHan;
     }
 }

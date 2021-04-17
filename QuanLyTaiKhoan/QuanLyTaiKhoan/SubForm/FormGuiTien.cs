@@ -39,21 +39,24 @@ namespace QuanLyTaiKhoan.SubForm
             dgvPhieu.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvPhieu.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvPhieu.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dgvPhieu.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvPhieu.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvPhieu.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvPhieu.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvPhieu.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvPhieu.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
             // set header
             dgvPhieu.Columns[0].HeaderText = "Mã Phiếu";
             dgvPhieu.Columns[1].HeaderText = "CMND";
             dgvPhieu.Columns[2].HeaderText = "Mã DV";
             dgvPhieu.Columns[3].HeaderText = "Ngày gửi";
             dgvPhieu.Columns[4].HeaderText = "Lãi suất";
-            dgvPhieu.Columns[5].HeaderText = "Số tiền gửi";
-            dgvPhieu.Columns[6].HeaderText = "Ngày đến hạn";
-            dgvPhieu.Columns[7].HeaderText = "Mã GDV lập phiếu";
+            dgvPhieu.Columns[5].HeaderText = "Kỳ hạn";
+            dgvPhieu.Columns[6].HeaderText = "Số tiền gửi";
+            dgvPhieu.Columns[7].HeaderText = "Ngày đến hạn";
+            dgvPhieu.Columns[8].HeaderText = "Mã GDV lập phiếu";
 
             dgvPhieu.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
+            dgvPhieu.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
         }
 
@@ -174,8 +177,9 @@ namespace QuanLyTaiKhoan.SubForm
             float laiSuat = float.Parse(txtLaiSuat.Text);
             int maGDV = Int32.Parse(txtMaGDV.Text);
             string ngayGui = DateTime.Now.ToString("dd/MM/yyyy");
-            string ngayDenHan = dateNgayDenHan.Text;
-            
+            string ngayDenHan = dateNgayDenHan.Value.ToString();
+            int kyHan = Convert.ToInt32(numericUpDownKyHan.Value);
+            long soTienGui = Convert.ToInt64(txtMoney.Text);
             if (cmnd.Length == 0)
             {
                 setError("Vui lòng nhập số cmnd khách hàng cần thêm");
@@ -192,6 +196,14 @@ namespace QuanLyTaiKhoan.SubForm
             {
                 setError("Vui lòng nhập tiền cần gửi");
             }
+            else if(kyHan < 0 || kyHan == 0)
+            {
+                setError("Vui chọn kỳ hạn hợp lệ");
+            }
+            else if(soTienGui < 100000)
+            {
+                setError("Số tiền tối thiểu là 100000");
+            }
             else
             {
                 
@@ -199,10 +211,11 @@ namespace QuanLyTaiKhoan.SubForm
                 {
                     try
                     {
-                        long soTienGui = Int64.Parse(txtMoney.Text);
+
                         try
                         {
-                            if (PhieuGuiDAO.Instance.AddPhieuGui(cmnd, maDV, ngayGui, laiSuat, ngayDenHan, soTienGui, maGDV))
+                            //textBox1.Text = " set dateformat dmy INSERT INTO [dbo].[PHIEUGUI]([CMND],[MADV],[NGAYGUI],[LAISUAT],[KYHAN],[SOTIEN_GUI],[NGAYDENHAN],[MAGDV_LPG],[rowguid]) VALUES (N'" + cmnd + "','" + maDV + "','" + ngayGui + "'," + laiSuat + "," + kyHan + "," + soTienGui + ",'" + ngayDenHan + "'," + maGDV + ",NEWID()) ";
+                            if (PhieuGuiDAO.Instance.AddPhieuGui(cmnd, maDV, ngayGui, laiSuat, kyHan, ngayDenHan, soTienGui, maGDV))
                             {
                                 clearTextBox();
                                 setSuccess("Lập phiếu thành công");
@@ -242,9 +255,10 @@ namespace QuanLyTaiKhoan.SubForm
                 LoadCustomerByCMND(customerFind);
                 string madv = dgvPhieu.Rows[e.RowIndex].Cells[2].Value.ToString();
                 cbxMaDV.SelectedIndex = cbxMaDV.FindStringExact(madv);
-                dateNgayDenHan.Text = dgvPhieu.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtMaGDV.Text = dgvPhieu.Rows[e.RowIndex].Cells[7].Value.ToString();
-                txtMoney.Text = dgvPhieu.Rows[e.RowIndex].Cells[5].Value.ToString();
+                dateNgayDenHan.Text = dgvPhieu.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtMaGDV.Text = dgvPhieu.Rows[e.RowIndex].Cells[8].Value.ToString();
+                txtMoney.Text = dgvPhieu.Rows[e.RowIndex].Cells[6].Value.ToString();
+                numericUpDownKyHan.Value = Decimal.Parse(dgvPhieu.Rows[e.RowIndex].Cells[5].Value.ToString());
                 btnThem.Enabled = false;
 
             }

@@ -15,3 +15,6 @@ D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiK
 D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormGuiTien.resources
 D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormCustomers.resources
 D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormStaffs.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormService.resources
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.csproj.ResolveComReference.cache
+D:\CSDLPT\QuanLyTaiKhoan\QLTK\QuanLyTaiKhoan\QuanLyTaiKhoan\obj\Debug\QuanLyTaiKhoan.SubForm.FormStatistical.resources

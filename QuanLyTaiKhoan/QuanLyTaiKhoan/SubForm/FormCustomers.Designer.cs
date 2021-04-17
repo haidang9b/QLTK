@@ -51,6 +51,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.txtMaCN = new System.Windows.Forms.TextBox();
             this.dateCMND = new System.Windows.Forms.DateTimePicker();
             this.txtError = new System.Windows.Forms.Label();
+            this.btnPrint = new FontAwesome.Sharp.IconButton();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +89,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnCapNhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCapNhat.IconSize = 30;
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(642, 218);
+            this.btnCapNhat.Location = new System.Drawing.Point(567, 218);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(120, 30);
             this.btnCapNhat.TabIndex = 4;
@@ -103,7 +104,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClear.IconSize = 30;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(461, 218);
+            this.btnClear.Location = new System.Drawing.Point(417, 218);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(120, 30);
             this.btnClear.TabIndex = 3;
@@ -118,7 +119,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnXoa.IconSize = 30;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(287, 218);
+            this.btnXoa.Location = new System.Drawing.Point(260, 218);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(120, 30);
             this.btnXoa.TabIndex = 2;
@@ -269,11 +270,27 @@ namespace QuanLyTaiKhoan.SubForm
             this.txtError.Size = new System.Drawing.Size(0, 16);
             this.txtError.TabIndex = 36;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrint.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrint.IconSize = 30;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(719, 218);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(120, 30);
+            this.btnPrint.TabIndex = 57;
+            this.btnPrint.Text = "In";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // FormCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 624);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.txtError);
             this.Controls.Add(this.dateCMND);
             this.Controls.Add(this.txtMaCN);
@@ -326,5 +343,6 @@ namespace QuanLyTaiKhoan.SubForm
         private System.Windows.Forms.TextBox txtMaCN;
         private System.Windows.Forms.DateTimePicker dateCMND;
         private System.Windows.Forms.Label txtError;
+        private FontAwesome.Sharp.IconButton btnPrint;
     }
 }

@@ -30,7 +30,7 @@ namespace QuanLyTaiKhoan.SubForm
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            this.dgvPhieuRut = new System.Windows.Forms.DataGridView();
             this.btnTraCuuSCMND = new System.Windows.Forms.Button();
             this.dateCMND = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,22 +57,25 @@ namespace QuanLyTaiKhoan.SubForm
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtMessage = new System.Windows.Forms.Label();
+            this.txtMaGDV = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtError = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTongTienRut = new System.Windows.Forms.TextBox();
+            this.txtTienLai = new System.Windows.Forms.TextBox();
             this.dateNgayRut = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbxMaPhieu = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnCapNhat = new FontAwesome.Sharp.IconButton();
+            this.btnTinhLai = new FontAwesome.Sharp.IconButton();
             this.btnClear = new FontAwesome.Sharp.IconButton();
             this.btnXoa = new FontAwesome.Sharp.IconButton();
             this.btnThem = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuRut)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -90,17 +93,18 @@ namespace QuanLyTaiKhoan.SubForm
             this.label1.TabIndex = 3;
             this.label1.Text = "PHIẾU RÚT TIỀN";
             // 
-            // dgvKhachHang
+            // dgvPhieuRut
             // 
-            this.dgvKhachHang.AllowUserToAddRows = false;
-            this.dgvKhachHang.AllowUserToDeleteRows = false;
-            this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
-            this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKhachHang.Location = new System.Drawing.Point(51, 344);
-            this.dgvKhachHang.Name = "dgvKhachHang";
-            this.dgvKhachHang.ReadOnly = true;
-            this.dgvKhachHang.Size = new System.Drawing.Size(876, 219);
-            this.dgvKhachHang.TabIndex = 31;
+            this.dgvPhieuRut.AllowUserToAddRows = false;
+            this.dgvPhieuRut.AllowUserToDeleteRows = false;
+            this.dgvPhieuRut.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPhieuRut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPhieuRut.Location = new System.Drawing.Point(51, 344);
+            this.dgvPhieuRut.Name = "dgvPhieuRut";
+            this.dgvPhieuRut.ReadOnly = true;
+            this.dgvPhieuRut.Size = new System.Drawing.Size(876, 219);
+            this.dgvPhieuRut.TabIndex = 31;
+            this.dgvPhieuRut.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuRut_CellContentClick);
             // 
             // btnTraCuuSCMND
             // 
@@ -115,6 +119,7 @@ namespace QuanLyTaiKhoan.SubForm
             // dateCMND
             // 
             this.dateCMND.CustomFormat = "dd/mm/yyyy";
+            this.dateCMND.Enabled = false;
             this.dateCMND.Location = new System.Drawing.Point(122, 96);
             this.dateCMND.Name = "dateCMND";
             this.dateCMND.Size = new System.Drawing.Size(181, 20);
@@ -273,6 +278,7 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             this.txtMoney.Location = new System.Drawing.Point(112, 172);
             this.txtMoney.Name = "txtMoney";
+            this.txtMoney.ReadOnly = true;
             this.txtMoney.Size = new System.Drawing.Size(181, 20);
             this.txtMoney.TabIndex = 34;
             this.txtMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -289,6 +295,7 @@ namespace QuanLyTaiKhoan.SubForm
             // dateNgayDenHan
             // 
             this.dateNgayDenHan.CustomFormat = "dd/mm/yyyy";
+            this.dateNgayDenHan.Enabled = false;
             this.dateNgayDenHan.Location = new System.Drawing.Point(112, 146);
             this.dateNgayDenHan.Name = "dateNgayDenHan";
             this.dateNgayDenHan.Size = new System.Drawing.Size(181, 20);
@@ -308,6 +315,7 @@ namespace QuanLyTaiKhoan.SubForm
             // dateNgayGui
             // 
             this.dateNgayGui.CustomFormat = "dd/mm/yyyy";
+            this.dateNgayGui.Enabled = false;
             this.dateNgayGui.Location = new System.Drawing.Point(112, 120);
             this.dateNgayGui.Name = "dateNgayGui";
             this.dateNgayGui.Size = new System.Drawing.Size(181, 20);
@@ -343,12 +351,15 @@ namespace QuanLyTaiKhoan.SubForm
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtMessage);
+            this.panel2.Controls.Add(this.txtMaGDV);
+            this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.txtError);
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.cbxMaPhieu);
             this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.dgvKhachHang);
-            this.panel2.Controls.Add(this.btnCapNhat);
+            this.panel2.Controls.Add(this.dgvPhieuRut);
+            this.panel2.Controls.Add(this.btnTinhLai);
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnThem);
@@ -360,18 +371,44 @@ namespace QuanLyTaiKhoan.SubForm
             this.panel2.Size = new System.Drawing.Size(1032, 591);
             this.panel2.TabIndex = 3;
             // 
+            // txtMessage
+            // 
+            this.txtMessage.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.txtMessage.AutoSize = true;
+            this.txtMessage.Location = new System.Drawing.Point(112, 178);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(0, 13);
+            this.txtMessage.TabIndex = 39;
+            // 
+            // txtMaGDV
+            // 
+            this.txtMaGDV.Location = new System.Drawing.Point(419, 139);
+            this.txtMaGDV.Name = "txtMaGDV";
+            this.txtMaGDV.Size = new System.Drawing.Size(100, 20);
+            this.txtMaGDV.TabIndex = 38;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(348, 142);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.TabIndex = 37;
+            this.label17.Text = "Mã GDV";
+            // 
             // txtError
             // 
+            this.txtError.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.txtError.AutoSize = true;
-            this.txtError.Location = new System.Drawing.Point(95, 293);
+            this.txtError.Location = new System.Drawing.Point(143, 178);
             this.txtError.Name = "txtError";
             this.txtError.Size = new System.Drawing.Size(0, 13);
             this.txtError.TabIndex = 36;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.txtTongTienRut);
+            this.groupBox3.Controls.Add(this.txtTienLai);
             this.groupBox3.Controls.Add(this.dateNgayRut);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label14);
@@ -383,25 +420,28 @@ namespace QuanLyTaiKhoan.SubForm
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin rút";
             // 
-            // textBox2
+            // txtTongTienRut
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 20);
-            this.textBox2.TabIndex = 41;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTongTienRut.Location = new System.Drawing.Point(123, 75);
+            this.txtTongTienRut.Name = "txtTongTienRut";
+            this.txtTongTienRut.ReadOnly = true;
+            this.txtTongTienRut.Size = new System.Drawing.Size(181, 20);
+            this.txtTongTienRut.TabIndex = 41;
+            this.txtTongTienRut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox1
+            // txtTienLai
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 40;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTienLai.Location = new System.Drawing.Point(123, 46);
+            this.txtTienLai.Name = "txtTienLai";
+            this.txtTienLai.ReadOnly = true;
+            this.txtTienLai.Size = new System.Drawing.Size(181, 20);
+            this.txtTienLai.TabIndex = 40;
+            this.txtTienLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dateNgayRut
             // 
             this.dateNgayRut.CustomFormat = "dd/mm/yyyy";
+            this.dateNgayRut.Enabled = false;
             this.dateNgayRut.Location = new System.Drawing.Point(123, 19);
             this.dateNgayRut.Name = "dateNgayRut";
             this.dateNgayRut.Size = new System.Drawing.Size(181, 20);
@@ -443,6 +483,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.cbxMaPhieu.Name = "cbxMaPhieu";
             this.cbxMaPhieu.Size = new System.Drawing.Size(169, 21);
             this.cbxMaPhieu.TabIndex = 34;
+            this.cbxMaPhieu.SelectedValueChanged += new System.EventHandler(this.cbxMaPhieu_SelectedValueChanged);
             // 
             // label16
             // 
@@ -453,19 +494,20 @@ namespace QuanLyTaiKhoan.SubForm
             this.label16.TabIndex = 33;
             this.label16.Text = "Mã phiếu";
             // 
-            // btnCapNhat
+            // btnTinhLai
             // 
-            this.btnCapNhat.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.btnCapNhat.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnCapNhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCapNhat.IconSize = 30;
-            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(294, 237);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(120, 30);
-            this.btnCapNhat.TabIndex = 26;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnTinhLai.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btnTinhLai.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnTinhLai.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTinhLai.IconSize = 30;
+            this.btnTinhLai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTinhLai.Location = new System.Drawing.Point(295, 288);
+            this.btnTinhLai.Name = "btnTinhLai";
+            this.btnTinhLai.Size = new System.Drawing.Size(120, 30);
+            this.btnTinhLai.TabIndex = 26;
+            this.btnTinhLai.Text = "Tính tiền lãi";
+            this.btnTinhLai.UseVisualStyleBackColor = true;
+            this.btnTinhLai.Click += new System.EventHandler(this.btnTinhLai_Click);
             // 
             // btnClear
             // 
@@ -474,7 +516,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnClear.IconSize = 30;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(113, 237);
+            this.btnClear.Location = new System.Drawing.Point(114, 288);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(120, 30);
             this.btnClear.TabIndex = 25;
@@ -489,12 +531,13 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnXoa.IconSize = 30;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(294, 176);
+            this.btnXoa.Location = new System.Drawing.Point(295, 227);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(120, 30);
             this.btnXoa.TabIndex = 24;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -503,12 +546,13 @@ namespace QuanLyTaiKhoan.SubForm
             this.btnThem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnThem.IconSize = 30;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(114, 176);
+            this.btnThem.Location = new System.Drawing.Point(115, 227);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(120, 30);
             this.btnThem.TabIndex = 23;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Lập phiếu rút";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel1
             // 
@@ -529,7 +573,7 @@ namespace QuanLyTaiKhoan.SubForm
             this.Name = "FormRutTien";
             this.Text = "FormGuiTien";
             this.Load += new System.EventHandler(this.FormRutTien_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuRut)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -547,7 +591,7 @@ namespace QuanLyTaiKhoan.SubForm
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvKhachHang;
+        private System.Windows.Forms.DataGridView dgvPhieuRut;
         private System.Windows.Forms.Button btnTraCuuSCMND;
         private System.Windows.Forms.DateTimePicker dateCMND;
         private System.Windows.Forms.Label label5;
@@ -565,7 +609,7 @@ namespace QuanLyTaiKhoan.SubForm
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton btnCapNhat;
+        private FontAwesome.Sharp.IconButton btnTinhLai;
         private FontAwesome.Sharp.IconButton btnClear;
         private FontAwesome.Sharp.IconButton btnXoa;
         private FontAwesome.Sharp.IconButton btnThem;
@@ -580,8 +624,8 @@ namespace QuanLyTaiKhoan.SubForm
         private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTongTienRut;
+        private System.Windows.Forms.TextBox txtTienLai;
         private System.Windows.Forms.DateTimePicker dateNgayRut;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -589,5 +633,8 @@ namespace QuanLyTaiKhoan.SubForm
         private System.Windows.Forms.ComboBox cbxMaPhieu;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label txtError;
+        private System.Windows.Forms.TextBox txtMaGDV;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label txtMessage;
     }
 }
