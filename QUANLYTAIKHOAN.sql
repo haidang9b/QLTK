@@ -1,0 +1,166 @@
+﻿CREATE DATABASE QL_TAIKHOAN
+GO
+USE QL_TAIKHOAN
+GO
+CREATE TABLE CHINHANH(
+	MACN NCHAR(5),
+	TENCN NVARCHAR(50) UNIQUE,
+	DIACHI NVARCHAR(80) NOT NULL,
+	PRIMARY KEY(MACN)
+)
+GO
+CREATE TABLE DICHVU(
+	MADV NCHAR(5),
+	KYHAN INT NOT NULL,
+	TENDV NVARCHAR(30) NOT NULL,
+	PRIMARY KEY(MADV),
+	CONSTRAINT CHECK_DICHVU_KYHAN CHECK(KYHAN >=0)
+)
+GO
+CREATE TABLE LAISUAT (
+	MADV NCHAR(5),
+	NGAYAD DATE,
+	LASUAT REAL NOT NULL,
+	CONSTRAINT FK_LAISUAT_MADV FOREIGN KEY(MADV) REFERENCES DICHVU(MADV),
+	PRIMARY KEY(MADV,NGAYAD)
+)
+GO
+
+CREATE TABLE KHACHHANG(
+	HOTEN NVARCHAR(50) NOT NULL,
+	DIACHI NVARCHAR(100) NOT NULL,
+	CMND NCHAR(9),
+	NGAYCAP DATE NOT NULL,
+	MACN NCHAR(5),
+	PRIMARY KEY(CMND),
+	CONSTRAINT FK_KHACHHANG_MACN FOREIGN KEY(MACN) REFERENCES CHINHANH(MACN)
+)
+GO
+
+CREATE TABLE GIAODICHVIEN(
+	HOTEN NVARCHAR(50) NOT NULL,
+	DIACHI NVARCHAR(100) NOT NULL,
+	MAGDV INT IDENTITY(1,1),
+	MACN NCHAR(5),
+	PRIMARY KEY(MAGDV),
+	CONSTRAINT FK_GIAODICHVIEN_MACN FOREIGN KEY(MACN) REFERENCES CHINHANH(MACN)
+)
+GO
+
+CREATE TABLE PHIEUGUI(
+	MAPHIEU INT IDENTITY(1,1),
+	CMND NCHAR(9) NOT NULL,
+	MADV NCHAR(5) NOT NULL,
+	NGAYGUI DATETIME NOT NULL DEFAULT GETDATE(),
+	LAISUAT REAL NOT NULL,
+	KYHAN INT,
+	SOTIEN_GUI MONEY NOT NULL DEFAULT 100000,
+	NGAYDENHAN DATETIME NOT NULL,
+	MAGDV_LPG INT,
+	PRIMARY KEY(MAPHIEU),
+	CONSTRAINT CHECK_PHIEU_SOTIEN_GUI CHECK(SOTIEN_GUI >=100000),
+	CONSTRAINT FK_PHIEU_CMND FOREIGN KEY(CMND) REFERENCES KHACHHANG(CMND),
+	CONSTRAINT FK_PHIEU_MADV FOREIGN KEY(MADV) REFERENCES DICHVU(MADV),
+	CONSTRAINT FK_PHIEU_MAGDV_LPG FOREIGN KEY(MAGDV_LPG) REFERENCES GIAODICHVIEN(MAGDV)
+)
+GO
+
+CREATE TABLE PHIEURUT(
+	MAPHIEU INT NOT NULL,
+	NGAYRUT DATETIME,
+	TIENLAI MONEY DEFAULT 0,
+	TONGTIEN MONEY,
+	MAGDV_LPR INT,
+	CONSTRAINT FK_PHIEU_MAGDV_LPR FOREIGN KEY(MAGDV_LPR) REFERENCES GIAODICHVIEN(MAGDV),
+	CONSTRAINT FK_PHIEURUT_MAPHIEU FOREIGN KEY(MAPHIEU) REFERENCES PHIEUGUI(MAPHIEU),
+	PRIMARY KEY (MAPHIEU)
+)
+GO
+
+CREATE TABLE ACCOUNT(
+	ID_TAIKHOAN INT IDENTITY(1,1),
+	TAIKHOAN CHAR(100) NOT NULL,
+	MATKHAU CHAR(100) NOT NULL,
+	QUYEN INT NOT NULL,
+	MACN NCHAR(5),
+	CHECK (QUYEN = 0 OR QUYEN = 1 OR QUYEN = 2), -- 0 IS ADMIN, 1 IS MANAGER OF CN, 2 IS USER 
+	PRIMARY KEY(ID_TAIKHOAN),
+	CONSTRAINT FK_TAIKHOAN_MACN FOREIGN KEY(MACN) REFERENCES CHINHANH(MACN)
+)
+GO
+
+INSERT INTO CHINHANH VALUES
+('CN1',N'Chi nhánh 1',N'10, Võ Văn Kiệt, Quận 1, TP Hồ Chí Minh'),
+('CN2',N'Chi nhánh 2',N'11B, Cát Linh, Quận Đống Đa, Hà Nội')
+
+GO
+INSERT INTO DICHVU VALUES
+('10',3,'Dịch vụ kỳ hạn 3 tháng'),
+('11',6,'Dịch vụ kỳ hạn 6 tháng'),
+('12',12,'Dịch vụ kỳ hạn 12 tháng'),
+('40',0,'Dịch vụ kỳ hạn 0 tháng')
+
+GO
+
+set DATEFORMAT DMY
+INSERT INTO LAISUAT VALUES
+('10','15/02/2020',0.0395),
+('11','16/02/2020',0.065),
+('12','14/02/2020',0.067),
+('40','15/02/2020',0.02)
+
+go
+
+INSERT INTO KHACHHANG VALUES
+(N'Phan Nguyễn Thái An',N'12/22 Tran Hung Dao, Di An','103921095','17/06/2004','CN1'),
+(N'Đinh Thị Kiều Hương',N'102 Le Thi Rieng Street, Ho Chi Minh','763191929','01/01/2004','CN1'),
+(N'Lê Thị Tuyết Nhung',N'Vietnam-Singapore 2 Industrial Park, Ben Cat Dist','208834465','21/10/2003','CN1'),
+(N'Nguyễn Thị Ngọc Lan',N'Lot 208 - Amata Industrial Park, Long Binh WardBien Hoa City','013884654','01/10/2004','CN1'),
+(N'Huỳnh Lê Hồng Quế',N'Tan Hung Commune, Binh Long District','080879953','28/02/2004','CN1'),
+(N'Huỳnh Thị Thắm',N'National Highway 14, Dong Xoai Town','153812775','29/04/2004','CN1'),
+(N'Hồ Vĩnh Thái',N'Nghia Trung Commune, Bu Dang District','473160681','17/10/2004','CN1'),
+(N'Phương Thị Huyền Trang',N'184 Ly Chinh Thang Street, Ho Chi Minh','049184213','26/12/2004','CN1'),
+(N'Nguyễn Anh Tuấn',N'O 2/24 Ap Thanh Ha, Go Dau.','293444109','29/11/2004','CN1'),
+(N'Lê Thị Ngọc Yến',N'Nguyen Van Tiet, Ho Chi Minh','858068287','04/04/2004','CN1'),
+(N'Nguyễn Đông Dương',N'46 Chua Lang, Ha Noi','282330619','03/11/2004','CN2'),
+(N'Nguyễn Thị Thanh Hằng',N'58B Hue st., Ha Noi','320575517','06/08/2004','CN2'),
+(N'Tống Trà My',N'Linh Dam, Ha Noi','317703573','02/01/2004','CN2'),
+(N'Phạm Hoàng Nam',N'20 Tan Ap, Ha Noi','737955905','31/12/2004','CN2'),
+(N'Bùi Thế Phong',N'1 Nguyen Du Street,  Dien Bien Ward','203343849','31/10/2004','CN2'),
+(N'Nguyễn Duy Thịnh',N'Phan Chu Trinh, Bo Xuyen Ward','427656882','15/01/2004','CN2'),
+(N'Lê Thị Thùy Trang',N'101 Chuong Duong Do, Ha Noi','694317060','29/01/2003','CN2'),
+(N'Đoàn Lê Hàm Yên',N'No. 198 - Pho Le Quy Don, Thai Binh','767774627','16/08/2004','CN2'),
+(N'Hồ Ngọc Huy',N'Cu Chinh Lan Street, Dong Tien Ward','832155923','25/07/2003','CN2'),
+(N'Phan Thị Thanh Hương',N'8 Kim Long Hamlet, Tam Duong Dist','147758310','12/12/2004','CN2'),
+(N'Trần Thị Kim Liên',N'Bo Son, Vo Cuong Hamlet','672854728','25/08/2004','CN2')
+go
+
+INSERT INTO GIAODICHVIEN VALUES
+(N'Mai Hoàng Đặng',N'93 Str.45, Ward 6, Dist.4','CN1'),
+(N'Nguyễn Thị Hồng Nhung',N'2nd Floor 54 Phung Van Cung Street, Ho Chi Minh','CN1'),
+(N'Trần Thị Hoài Thương',N'173/44/15 Duong Quang Ham St Go Vap Dist Ho Chi Minh City','CN1'),
+(N'Phạm Minh Tuấn',N'485 Huynh Van Banh, Ho Chi Minh','CN1'),
+(N'Trương Đắc Ngọc',N'176 / 38 Tran Huy Lieu. Phu Nhuan District, Ho Chi Minh','CN1'),
+(N'Trần An Phước',N'Ho Van Hue, Ho Chi Minh','CN1'),
+(N'Nguyễn Ngọc Thảo Vy',N'Xuan Dinh, Ha Noi','CN2'),
+(N'Mai Văn Tỉnh',N'P.222-a 5- Tapthe Giang Vo-quan Ba Dinh, Ha Noi','CN2'),
+(N'Võ Thị Thúy An',N'78 Bach Dang, Ha Noi','CN2'),
+(N'Thị Bé Dân',N'Thuy Khue - Ha Noi, Ha Noi','CN2'),
+(N'Bùi Công Duy',N'148/173/68 Hoang Hoa Tham- Ba Dinh- Ha Noi- Viet Nam, Ha Noi','CN2'),
+(N'Đinh Trung Hiếu',N'Phan Dinh Giot, Ha Noi','CN2'),
+(N'Điểu Thanh Lân',N'42 Bich Cau, Ha Noi','CN2')
+
+go
+INSERT INTO ACCOUNT VALUES
+('admin1','123456',0,'CN1'),
+('admin2','123456',0,'CN2'),
+('user1','123456',2,'CN1'),
+('user2','123456',2,'CN2'),
+('mng1','123456',1,'CN1'),
+('mng2','123456',1,'CN2')
+
+
+
+
+
+SELECT* FROM GIAODICHVIEN
